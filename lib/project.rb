@@ -30,4 +30,8 @@ class Project
   def self.all
     self.get_projects('SELECT * FROM projects;')
   end
+
+  def self.find(id)
+    self.get_projects("SELECT * FROM projects WHERE id = #{id};").first
+  end
 end
