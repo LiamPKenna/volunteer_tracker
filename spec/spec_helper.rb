@@ -3,12 +3,12 @@ require "project"
 require "rspec"
 require "pry"
 require "pg"
-require "./config"
 
 # FOR WINDOWS
+require "./config"
 DB = PG.connect(TEST_DB_PARAMS)
 
-# FOR MAC
+# FOR MAC/LINUX
 # DB = PG.connect({:dbname => 'volunteer_tracker_test'})
 
 RSpec.configure do |config|

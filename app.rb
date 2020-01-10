@@ -10,7 +10,7 @@ also_reload('lib/**/*.rb')
 require('./config')
 DB = PG.connect(DB_PARAMS)
 
-# FOR MAC
+# FOR MAC/LINUX
 # DB = PG.connect({:dbname => "volunteer_tracker"})
 
 get('/') do

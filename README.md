@@ -12,21 +12,20 @@ _This site is a simple web application that tracks projects and the volunteers w
 * _view and add volunteers_
 * _connect volunteers to a single project_
 
-_For example:_
-| Input:  | Output:   |
-|---|---|
-|||
-|||
-
-_{DETAILS}_
 
 ## Setup/Installation Requirements
 
 * _Clone to local machine_
 * _In project root folder:_
   * _$ bundle install_
+  * _If on Windows:_
+    * _Find the files app.rb and spec/spec_helper.rb_
+    * _Comment out the DB loader for Mac and remove comment from the Windows loader_
+    * _Follow the directions in config.rb.template and rename as config.rb_
+  * _$ createdb volunteer_tracker_
+  * _$ psql volunteer_tracker < database_backup.sql_
+  * _$ createdb -T volunteer_tracker volunteer_tracker_test_
   * _$ ruby app.rb_
-* _This site can be viewed in it's current form at https://agile-sea-88531.herokuapp.com/_
 
 _To explore the source code, feel free to browse on github or clone to your local machine_
 
