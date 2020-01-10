@@ -63,6 +63,13 @@ patch('/projects/:id/volunteers/:volunteer_id') do
   redirect to("/projects/#{params[:id]}/volunteers/#{params[:volunteer_id]}")
 end
 
+patch('/projects/:id/volunteers/:volunteer_id/hours') do
+  @volunteer = Volunteer.find(params[:volunteer_id].to_i)
+  erb(:volunteer)
+  @volunteer.add_hours(params[:hours].to_i)
+  redirect to("/projects/#{params[:id]}/volunteers/#{params[:volunteer_id]}")
+end
+
 post('/projects/:id/volunteers') do
   name = params[:name]
   new_volunteer = Volunteer.new({:name => name, :id => nil, :project_id => params[:id].to_i, :hours => 0})
