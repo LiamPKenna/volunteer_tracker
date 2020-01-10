@@ -45,5 +45,8 @@ patch('/projects/:id') do
   redirect to("/projects/#{params[:id]}")
 end
 
-delete('/') do
+delete('/projects/:id') do
+  @project = Project.find(params[:id].to_i)
+  @project.delete
+  redirect to('/projects')
 end
