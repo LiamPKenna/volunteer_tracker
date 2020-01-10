@@ -1,35 +1,32 @@
-<div class="content">
-  <h3>Current Projects:</h3>
-  <% if @projects.any? %>
-    <table class="u-full-width">
-      <thead>
-        <tr>
-          <th>Project Title</th>
-          <th>Volunteers Signed-Up</th>
-          <th>Hours Invested</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @projects.each do |project| %>
-        <tr>
-          <td><a href="/projects/<%= project.id %>"><%= project.title %></a></td>
-          <td><%= project.volunteers.length %></td>
-          <td><%= project.get_hours %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <p>There are currently no projects to display.</p>
-  <% end %>
+<h3>Current Projects:</h3>
+<% if @projects.any? %>
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Project Title</th>
+      <th>Volunteers Signed-Up</th>
+      <th>Hours Invested</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+    <tr>
+      <td><a href="/projects/<%= project.id %>"><%= project.title %></a></td>
+      <td><%= project.volunteers.length %></td>
+      <td><%= project.get_hours %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<p>There are currently no projects to display.</p>
+<% end %>
 
-  <h3>Add a New Project:</h3>
-  <form action="/projects" method="post">
-    <div class="form-group">
-      <label for="title">Project Title:</label>
-      <input id="new-project" name="title" class="u-full-width" type="text">
-    </div>
-    <button type="submit" class="btn">Create Project</button>
-  </form>
-
-</div>
+<h3>Add a New Project:</h3>
+<form action="/projects" method="post">
+  <div class="form-group">
+    <label for="title">Project Title:</label>
+    <input id="new-project" name="title" class="u-full-width" type="text">
+  </div>
+  <button type="submit" class="btn">Create Project</button>
+</form>

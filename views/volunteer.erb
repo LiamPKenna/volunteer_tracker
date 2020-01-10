@@ -1,4 +1,4 @@
-<h3>Volunteer: <%= @volunteer.name %></h3>
+<h3>Volunteer: <strong><%= @volunteer.name %></strong></h3>
 <h3>Project: <%= Project.find(@volunteer.project_id).title %></h3>
 <h3>Hours: <%= @volunteer.hours %></h3>
 
@@ -6,7 +6,7 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <label for="hours">Add Hours</label>
-  <input id="hours" name="hours" type="number" placeholder="<%= 0 %>">
+  <input id="hours" name="hours" type="number" class="u-full-width" placeholder="<%= 0 %>">
 
   <button type="submit">Add</button>
 </form>
@@ -15,7 +15,7 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <label for="name">Rename Volunteer</label>
-  <input id="name" name="name" type="text" placeholder="<%= @volunteer.name %>">
+  <input id="name" name="name" class="u-full-width" type="text" placeholder="<%= @volunteer.name %>">
 
   <button type="submit">Update Volunteer</button>
 </form>

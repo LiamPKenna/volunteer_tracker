@@ -1,3 +1,7 @@
+body {
+  background-color: #dce8e7;
+}
+
 h1 {
   text-align: center;
   margin-top: 5%;
@@ -9,11 +13,19 @@ a h1 {
 }
 
 .content {
-  background-color: lightgray;
+  background-color: white;
   padding: 20px;
   border-radius: 30px;
+  border: 3px solid black;
 }
 
 p {
+  margin: 15px;
   text-align: center;
+}
+
+button, .button {
+  background-color: #defffc;
+  margin: auto;
+  width: 100%;
 }
