@@ -62,6 +62,7 @@ class Volunteer
 
   def add_hours(hours)
     @hours += hours.to_i
+    DB.exec("UPDATE volunteers SET hours = '#{@hours}' WHERE id = #{@id};")
   end
 
 end
