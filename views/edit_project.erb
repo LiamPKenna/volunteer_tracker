@@ -1,4 +1,4 @@
-<h1>Update <%=@project.title() %></h1>
+<h1>Update <strong><%=@project.title() %></strong></h1>
 
 <form action="/projects/<%= @project.id() %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
