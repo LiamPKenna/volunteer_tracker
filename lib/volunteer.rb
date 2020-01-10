@@ -44,4 +44,8 @@ class Volunteer
     self.get_volunteers("SELECT * FROM volunteers WHERE id = #{id};").first
   end
 
+  def self.find_by_project(project_id)
+    self.get_volunteers("SELECT * FROM volunteers WHERE project_id = #{project_id};")
+  end
+
 end

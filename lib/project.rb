@@ -34,4 +34,8 @@ class Project
   def self.find(id)
     self.get_projects("SELECT * FROM projects WHERE id = #{id};").first
   end
+
+  def volunteers
+    Volunteer.find_by_project(@id)
+  end
 end
