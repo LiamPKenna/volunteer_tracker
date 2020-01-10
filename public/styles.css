@@ -1,5 +1,16 @@
+body, html {
+  height: 100%;
+}
+
 body {
   background-color: #dce8e7;
+}
+
+.bg {
+  background-image: url("img/bkgnd.jpg");
+  height: 100%;
+  background-position: center;
+  background-size: fill;
 }
 
 h1 {
