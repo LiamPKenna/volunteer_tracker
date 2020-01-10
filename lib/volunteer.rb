@@ -6,6 +6,7 @@ class Volunteer
     @name = attributes.fetch(:name)
     @project_id = attributes.fetch(:project_id)
     @id = attributes.fetch(:id)
+    @hours = attributes.fetch(:hours)
   end
 
   def save
@@ -39,7 +40,8 @@ class Volunteer
       volunteers.push(Volunteer.new({
         :name => name,
         :project_id => project_id,
-        :id => id
+        :id => id,
+        :hours => 0
       }))
     end
     volunteers

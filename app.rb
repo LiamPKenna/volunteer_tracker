@@ -65,7 +65,7 @@ end
 
 post('/projects/:id/volunteers') do
   name = params[:name]
-  new_volunteer = Volunteer.new({:name => name, :id => nil, :project_id => params[:id].to_i})
+  new_volunteer = Volunteer.new({:name => name, :id => nil, :project_id => params[:id].to_i, :hours => 0})
   new_volunteer.save
   redirect to("/projects/#{params[:id]}")
 end

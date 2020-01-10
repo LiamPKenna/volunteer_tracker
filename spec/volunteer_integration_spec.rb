@@ -55,7 +55,7 @@ describe 'the volunteer detail page path', {:type => :feature} do
     test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
     test_project.save
     project_id = test_project.id.to_i
-    test_volunteer = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil})
+    test_volunteer = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil, :hours => 0})
     test_volunteer.save
     visit "/projects/#{project_id}"
     click_link('Jasmine')
