@@ -54,4 +54,13 @@ describe Volunteer do
       expect(Volunteer.find(volunteer1.id)).to eq volunteer1
     end
   end
+
+  describe '#add_hours' do
+    it 'adds an input number to the hours of a volunteer' do
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil, :hours => 0})
+      volunteer1.save
+      volunteer1.add_hours(5)
+      expect(volunteer1.hours).to eq 5
+    end
+  end
 end
