@@ -14,9 +14,19 @@ DB = PG.connect(DB_PARAMS)
 # DB = PG.connect({:dbname => "volunteer_tracker"})
 
 get('/') do
+  redirect to('/projects')
 end
 
-post('/') do
+get('/projects') do
+  @projects = Project.all
+  erb(:projects)
+end
+
+post('/projects') do
+  title = params[:title]
+  new_project = Project.new({:title => title, :id => nil})
+  new_project.save
+  redirect to('/projects')
 end
 
 patch('/') do
