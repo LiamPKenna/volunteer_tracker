@@ -3,11 +3,20 @@
 <h3>Project Volunteers:</h3>
 
   <% if @project.volunteers.length > 0 %>
-    <ul>
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Volunteer Name</th>
+      </tr>
+    </thead>
+    <tbody>
       <% @project.volunteers.each do |volunteer| %>
-        <li><a href="/projects/<%= @project.id %>/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></li>
+      <tr>
+        <td><a href="/projects/<%= @project.id %>/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></td>
+      </tr>
       <% end %>
-    </ul>
+    </tbody>
+  </table>
   <% else %>
     <p>There are no volunteers listed for this project yet.</p>
   <% end %>

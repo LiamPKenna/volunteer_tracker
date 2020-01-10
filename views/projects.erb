@@ -1,12 +1,23 @@
-<h1>Volunteer Tracker</h1>
-
 <h3>Current Projects:</h3>
 <% if @projects.any? %>
-  <ul>
-    <% @projects.each do |project| %>
-      <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>
-    <% end %>
-  </ul>
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Project Title</th>
+        <th>Volunteers Signed-Up</th>
+        <th>Hours Invested</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+      <tr>
+        <td><a href="/projects/<%= project.id %>"><%= project.title %></a></td>
+        <td><%= project.volunteers.length %></td>
+        <td>0</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
   <p>There are currently no projects to display.</p>
 <% end %>
