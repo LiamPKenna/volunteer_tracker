@@ -8,6 +8,14 @@ class Volunteer
     @id = attributes.fetch(:id)
   end
 
+  def save
+    result = DB.exec("
+      INSERT INTO volunteers (name, project_id)
+      VALUES ('#{@name}',#{@project_id}) RETURNING id;
+    ")
+    @id = result.first.fetch('id').to_i
+  end
+
   def ==(volunteer_to_compare)
     self.name == volunteer_to_compare.name
   end
@@ -19,7 +27,7 @@ class Volunteer
       name = volunteer.fetch('name')
       project_id = volunteer.fetch('project_id').to_i
       id = volunteer.fetch('id').to_i
-      volunteers.push(Project.new({
+      volunteers.push(Volunteer.new({
         :name => name,
         :project_id => project_id,
         :id => id
