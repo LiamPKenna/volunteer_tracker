@@ -1,0 +1,19 @@
+<h2>Volunteer: <%= @volunteer.name %></h2>
+<h3>Project: <%= Project.find(@volunteer.project_id).title %></h3>
+
+<form action="/projects/<%= @volunteer.project_id %>/volunteers/<%= @volunteer.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label for="name">Rename volunteer</label>
+  <input id="name" name="name" type="text" placeholder="<%= @volunteer.name %>">
+
+  <button type="submit">Update Volunteer</button>
+</form>
+
+<form action="/projects/<%= @volunteer.project_id %>/volunteers/<%= @volunteer.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete Volunteer</button>
+</form>
+
+<a href="/projects/<%= @volunteer.project_id %>">Back to <%= Project.find(@volunteer.project_id).title %></a>

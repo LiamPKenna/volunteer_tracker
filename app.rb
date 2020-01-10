@@ -69,3 +69,9 @@ post('/projects/:id/volunteers') do
   new_volunteer.save
   redirect to("/projects/#{params[:id]}")
 end
+
+delete('/projects/:id/volunteers/:volunteer_id') do
+  @volunteer = Volunteer.find(params[:volunteer_id].to_i)
+  @volunteer.delete
+  redirect to("/projects/#{params[:id]}")
+end

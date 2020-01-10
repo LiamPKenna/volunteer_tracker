@@ -16,6 +16,15 @@ class Volunteer
     @id = result.first.fetch('id').to_i
   end
 
+  def update(attributes)
+    @name = attributes.fetch(:name)
+    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+  end
+
+  def delete
+    DB.exec("DELETE FROM volunteers WHERE id = #{@id};")
+  end
+
   def ==(volunteer_to_compare)
     self.name == volunteer_to_compare.name
   end
