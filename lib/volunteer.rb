@@ -1,6 +1,6 @@
 class Volunteer
 
-  attr_reader :name, :id, :project_id
+  attr_reader :name, :id, :project_id, :hours
 
   def initialize(attributes)
     @name = attributes.fetch(:name)
@@ -37,11 +37,12 @@ class Volunteer
       name = volunteer.fetch('name')
       project_id = volunteer.fetch('project_id').to_i
       id = volunteer.fetch('id').to_i
+      hours = volunteer.fetch('hours').to_i
       volunteers.push(Volunteer.new({
         :name => name,
         :project_id => project_id,
         :id => id,
-        :hours => 0
+        :hours => hours
       }))
     end
     volunteers
@@ -57,6 +58,10 @@ class Volunteer
 
   def self.find_by_project(project_id)
     self.get_volunteers("SELECT * FROM volunteers WHERE project_id = #{project_id};")
+  end
+
+  def add_hours(hours)
+    @hours += hours.to_i
   end
 
 end
