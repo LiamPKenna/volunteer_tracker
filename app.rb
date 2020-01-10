@@ -19,6 +19,15 @@ end
 
 get('/projects') do
   @projects = Project.all
+  if params[:sort]
+    if params[:sort] == 'title'
+      @projects.sort! { |a, b| a.title.downcase <=> b.title.downcase }
+    elsif params[:sort] == 'volunteers'
+      @projects.sort! { |a, b| b.volunteers.length <=> a.volunteers.length }
+    else
+      @projects.sort! { |a, b| b.get_hours <=> a.get_hours }
+    end
+  end
   erb(:projects)
 end
 
@@ -32,6 +41,14 @@ end
 get('/projects/:id') do
   @project = Project.find(params[:id].to_i)
   @volunteers = @project.volunteers
+  if params[:sort]
+    puts 'sort em!'
+    if params[:sort] == 'name'
+      @volunteers.sort! { |a, b| a.name.downcase <=> b.name.downcase }
+    else
+      @volunteers.sort! { |a, b| b.hours <=> a.hours }
+    end
+  end
   erb(:project)
 end
 
