@@ -29,7 +29,20 @@ post('/projects') do
   redirect to('/projects')
 end
 
-patch('/') do
+get('/projects/:id') do
+  @project = Project.find(params[:id].to_i)
+  erb(:project)
+end
+
+get('/projects/:id/edit') do
+  @project = Project.find(params[:id].to_i)
+  erb(:edit_project)
+end
+
+patch('/projects/:id') do
+  @project = Project.find(params[:id].to_i)
+  @project.update({:title => params[:title]})
+  redirect to("/projects/#{params[:id]}")
 end
 
 delete('/') do
