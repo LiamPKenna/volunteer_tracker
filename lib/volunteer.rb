@@ -40,4 +40,8 @@ class Volunteer
     self.get_volunteers('SELECT * FROM volunteers;')
   end
 
+  def self.find(id)
+    self.get_volunteers("SELECT * FROM volunteers WHERE id = #{id};").first
+  end
+
 end
