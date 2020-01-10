@@ -1,10 +1,20 @@
-<h2>Volunteer: <%= @volunteer.name %></h2>
+<h3>Volunteer: <%= @volunteer.name %></h3>
 <h3>Project: <%= Project.find(@volunteer.project_id).title %></h3>
+<h3>Hours: <%= @volunteer.hours %></h3>
+
+<form action="/projects/<%= @volunteer.project_id %>/volunteers/<%= @volunteer.id %>/hours" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label for="hours">Add Hours</label>
+  <input id="hours" name="hours" type="number" placeholder="<%= 0 %>">
+
+  <button type="submit">Add</button>
+</form>
 
 <form action="/projects/<%= @volunteer.project_id %>/volunteers/<%= @volunteer.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <label for="name">Rename volunteer</label>
+  <label for="name">Rename Volunteer</label>
   <input id="name" name="name" type="text" placeholder="<%= @volunteer.name %>">
 
   <button type="submit">Update Volunteer</button>

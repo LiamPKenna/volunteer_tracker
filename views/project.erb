@@ -1,37 +1,41 @@
-<h2>Project Title: <%= @project.title %></h2>
+<div class="content">
+  <h3>Project Title: <%= @project.title %></h3>
 
-<h3>Project Volunteers:</h3>
+  <h3>Project Volunteers:</h3>
 
-  <% if @project.volunteers.length > 0 %>
-  <table class="u-full-width">
-    <thead>
-      <tr>
-        <th>Volunteer Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @project.volunteers.each do |volunteer| %>
-      <tr>
-        <td><a href="/projects/<%= @project.id %>/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <% else %>
-    <p>There are no volunteers listed for this project yet.</p>
-  <% end %>
+    <% if @project.volunteers.length > 0 %>
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Volunteer Name</th>
+          <th>Volunteer Hours</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @project.volunteers.each do |volunteer| %>
+        <tr>
+          <td><a href="/projects/<%= @project.id %>/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></td>
+          <td><%= volunteer.hours %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+      <p>There are no volunteers listed for this project yet.</p>
+    <% end %>
 
-<h4>Add a volunteer:</h4>
+  <h4>Add a volunteer:</h4>
 
-<form action="/projects/<%= @project.id %>/volunteers" method="post">
-  <div class="form-group">
-    <label for="name">Volunteer name</label>
-    <input id="name" name="name" class="form-control" type="text">
-  </div>
-  <button type="submit" class="btn">Add Volunteer</button>
-</form>
+  <form action="/projects/<%= @project.id %>/volunteers" method="post">
+    <div class="form-group">
+      <label for="name">Volunteer name</label>
+      <input id="name" name="name" class="u-full-width" type="text">
+    </div>
+    <button type="submit" class="btn">Add Volunteer</button>
+  </form>
+  <a href="/projects/<%= @project.id() %>/edit" class="button">Edit Project</a>
+  <br>
 
-<form action="/projects/<%= @project.id() %>/edit" method="get">
-  <input name="_method" type="hidden" value="edit">
-  <button type="submit" class="btn"><a href="/projects/<%= @project.id() %>/edit">Edit Project</a></button>
-</form>
+  <p><a href="/projects">Back to Project List</a></p>
+
+</div>
