@@ -3,7 +3,7 @@
 <form action="/projects/<%= @project.id() %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label for="title">Rename Project</label>
-  <input id="title" name="title" class="u-full-width" type="text">
+  <input id="title" name="title" class="u-full-width" type="text" required>
   <button type="submit">Update Project</button>
 </form>
 
