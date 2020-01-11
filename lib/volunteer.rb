@@ -64,5 +64,4 @@ class Volunteer
     @hours += hours.to_i
     DB.exec("UPDATE volunteers SET hours = '#{@hours}' WHERE id = #{@id};")
   end
-
 end
